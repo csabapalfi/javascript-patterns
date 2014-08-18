@@ -72,3 +72,11 @@
 * JSLint and JSHint are static code analysis tools
 * JSLint is really strict but JSHint is more configurable
 * All examples in the book pass JSLint
+
+# console
+
+* the ```console``` object is not part of the language but available in most environments
+* Firebug in Firefox, Chrome Dev Tools in Chrome, standard I/O in Node.js, IE8+ Developer Tools
+* ```console.log``` - prints all parameters passed to it
+* ```console.dir``` - enumerates object and print all properties
+* when testing in browser console they log output by default
