@@ -38,3 +38,30 @@
 * no classes, unlearn if you worked with another OO language before
 * usually you just start with empty object and add properties to it
 * prefer composition over inheritance
+
+### prototypes
+
+* one way of achieving inheritance, but nothing special
+* prototype is just object property that gets added to every function
+* prototype property points to a new empty object
+* prototype object almost identical to object literal or new Object() but
+* but constructor property points at the function you're creating not the builtin Object()
+
+### environment
+
+* JS programs need an environment to run
+* the browser is the most common one
+* most patterns in the book are environment-agnostic
+* environments can provide their own host objects
+    * which might have unexpected behaviour
+    * not defined in the ES standard
+
+# EcmaScript 5
+
+* core javascript is based on the EcmaScript standard
+* ES3 was accepted in 1999, ES4 was dropped, ES5 2009
+* most important addition: strict mode
+    * trigerred by a ```'use strict';``` - backwards compatible
+    * once per scope - that function is executed in a strict subset of the language
+    * error is thrown if a non strict allowed feature is used
+* the plan is that future version will only support strict mode
