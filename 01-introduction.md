@@ -65,3 +65,10 @@
     * once per scope - that function is executed in a strict subset of the language
     * error is thrown if a non strict allowed feature is used
 * the plan is that future version will only support strict mode
+
+# JSLint/JSHint
+
+* Javascript is an interpreted language with no compiler to help spotting errors
+* JSLint and JSHint are static code analysis tools
+* JSLint is really strict but JSHint is more configurable
+* All examples in the book pass JSLint
