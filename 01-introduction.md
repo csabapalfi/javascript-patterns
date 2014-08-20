@@ -80,3 +80,14 @@
 * ```console.log``` - prints all parameters passed to it
 * ```console.dir``` - enumerates object and print all properties
 * when testing in browser console they log output by default
+
+# chrome dev console
+
+* log XHR
+* console.time()/console.timeEnd()
+* console.dir()/dir()
+* inspect()
+* $$
+* monitorEvents() // mouse, key
+* keys()/values()
+* copy()
