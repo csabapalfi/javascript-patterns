@@ -86,7 +86,7 @@
 * log XHR
 * console.time()/console.timeEnd()
 * console.dir()/dir()
-* inspect()
+* inspect() / $0
 * $$
 * monitorEvents() // mouse, key
 * keys()/values()

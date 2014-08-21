@@ -74,3 +74,22 @@ if (typeof Object.prototype.myMethod != = function) {
 * always end ```case``` with ```break;```
 * avoid fallthroughs (no break)
 * end the switch with ```default:```
+
+### avoid implied typecasting
+
+* JavaScript implicitly typecasts variables when you compare them
+* always use ```===``` and ```!===``` as they check types as well
+
+### eval() is evil
+
+* executing any String as JavaScript, seriously?
+* use ```[]``` to access dynamic properties
+* use JSON.parse for AJAX responses
+* always use ```function```s with ```setTimeout``` and ```setInterval``` (instead of Strings)
+* try not to use ```new Function()``` as it's similar to ```eval```
+
+### specify radix ```parseInt()``` (?)
+
+* ```parseInt()``` gets a numeric value from a String
+* has an optional radix parameter which shouldn't be omitted (in ES3)
+* ES3 ```parseInt('08')``` gets confused and treats numbers starting with 0 as octals
