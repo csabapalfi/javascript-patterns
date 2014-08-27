@@ -25,8 +25,9 @@
 * pass a reference to this from global scope to your function
 * non-strict mode: any function invoked (not with ```new```) has ```this``` pointing at the global object
 
-### single var pattern (?)
+### single var pattern (nope)
 
+* the world has moved on: see [this blog post](http://benalman.com/news/2012/05/multiple-var-statements-javascript/)
 * single var statement at the top of your functions
 * single place to look for all the vars needed by your function
 * prevents logical errors when var is used before it's defined (hoisting)
