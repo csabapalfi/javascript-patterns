@@ -38,12 +38,12 @@
 
 * multiple var statements (anywhere in a function) act as if they were at the top
 
-### caching array length in for loops (?)
+## caching array length in for loops (?)
 
 * for cache array length ```for (var i, max = arr.length; i < max, i++)```
 * unless length can change
 
-### for in and hasOwnProperty when needed
+## for in and hasOwnProperty when needed
 
 * for in - filter things coming down the prototype chain
 ```js
@@ -54,7 +54,7 @@ for (prop in obj){
 ```
 * unless you know and can trust the object you're dealing with
 
-### don't augment builtin prototypes
+## don't augment builtin prototypes
 
 * augmenting the prototype property of constructor functions is powerful
 * but hurts maintainability when done on builtin prototypes
@@ -67,7 +67,7 @@ if (typeof Object.prototype.myMethod != = function) {
 }
 ```
 
-### ```switch```
+## ```switch```
 
 * align each ```case``` with ```switch```
 * indent code within each ```case```
@@ -75,12 +75,12 @@ if (typeof Object.prototype.myMethod != = function) {
 * avoid fallthroughs (no break)
 * end the switch with ```default:```
 
-### avoid implied typecasting
+## avoid implied typecasting
 
 * JavaScript implicitly typecasts variables when you compare them
 * always use ```===``` and ```!===``` as they check types as well
 
-### eval() is evil
+## eval() is evil
 
 * executing any String as JavaScript, seriously?
 * use ```[]``` to access dynamic properties
@@ -88,8 +88,40 @@ if (typeof Object.prototype.myMethod != = function) {
 * always use ```function```s with ```setTimeout``` and ```setInterval``` (instead of Strings)
 * try not to use ```new Function()``` as it's similar to ```eval```
 
-### specify radix ```parseInt()``` (?)
+## specify radix ```parseInt()``` (?)
 
 * ```parseInt()``` gets a numeric value from a String
 * has an optional radix parameter which shouldn't be omitted (in ES3)
 * ES3 ```parseInt('08')``` gets confused and treats numbers starting with 0 as octals
+
+## code conventions
+
+* more important to agree and consistently follow than what the exact details are
+* indent everything within curly braces
+* always use curly braces (even when optional: for, if)
+* avoid errors or confusion by automatic semicolon insertion
+    * always put opening curly braces on the same line as the previous statement
+    * always use semicolons
+* generic and consistent use of spaces makes code more readable
+* use vertical spacing too - blank lines to separate units of code
+
+## naming conventions
+
+* Capitalize constructor functions to differentiate them
+* use camelcase in function and variable name to separate words
+* all caps for constants (not expected to change even though this can't be enforced until ES6 const)
+* underscore (_ or __) prefix (and/or suffix) for private API
+
+## write to be read
+
+* keep comments up to date if you write them
+* jsDoc and YUIDoc can generate API docs from comments
+
+## minify in production
+
+* any code delivered to the browser should be minified to improve performance
+* Uglify, Closure Compiler, YUI Compressor
+
+## Run JSLint/JSHint
+
+* on edit/save
