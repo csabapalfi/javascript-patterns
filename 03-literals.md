@@ -110,3 +110,25 @@ if(!(this instanceof arguments.callee)){
 * before ES5 the literal created only one object even when called repeatedly
 * (same object is a problem as it has properties like lastIndex set)
 * starting from ES5 regex literal returns new object
+
+## primitive wrappers
+
+* JS primitives: number, string, boolean, null and undefined
+* number, string and boolean have primitive wrapper
+* primitive wrapper objects come with useful methods like .toFixed() or substring()
+* these methods work on primitive (variables) as well, converted temporarily
+* only use wrapper object when you need to augment a value and persist state (do you really need to?)
+* attempting to augment primitive value doesn't result in error but won't persist state
+* ```new``` wrapper constructor converts argument to primitive value
+
+## Error object
+
+* JS has built-in Error constructors to be used with ```throw```
+* ```Error()```, ```SyntaxError()```, ```TypeError()```
+* these error object have ```name``` and ```message``` properties
+* Error constructors work the same way when called with or without ```new```
+* ```throw``` works with any object - you can come up with custom error objects
+
+## ```new Date()```
+
+* one of the only builtin constructors you actually want to use
