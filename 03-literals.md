@@ -78,3 +78,35 @@ if(!(this instanceof arguments.callee)){
 * containing all the parameters passed to the function when it was invoked
 * arguments has a property named callee which points back at the called function
 * arguments.callee is not allowed in ES5 strict mode
+
+## Array literal
+
+* ```[]``` is preferred to ```new Array()```
+* unexpected Array constructor behaviour:
+    * called with single number, uses the number as length
+    * if number is a float, results in RangeError as it's not valid array length
+    * hack for repeating strings: ```new Array(256).join(' '); //255 spaces```
+
+## checking Array-iness
+
+* ```typeof``` with array operands returns ```Object```
+* before ES5 - checking for length or slice property
+* ES5 introduced .isArray method
+* also ```Object.prototype.toString()``` returns ```"[object Array]"``` (instead of ```"[object Object]"```)
+
+## JSON
+
+* combination of object and array literal notation
+* but property names and Strings have to be wrapped in double-quotes
+* no functions or regex literals
+* ES5 JSON.parse and JSON.stringify
+
+## Regex literal
+
+* ```//``` is preferred to ```new RegExp()```
+* shorter and no need to escape quotes or double-escape backslashes
+* ```/<regex>/<flags>``` - flags (g)lobal, (m)ultiline, case (i)nsensitive
+* use new RegExp() if the pattern is not known, and constructed runtime as a String
+* before ES5 the literal created only one object even when called repeatedly
+* (same object is a problem as it has properties like lastIndex set)
+* starting from ES5 regex literal returns new object
