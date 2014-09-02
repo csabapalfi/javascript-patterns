@@ -39,4 +39,20 @@ var add = function (a,b) { ... }
 function (a,b) { ... }
 ```
 * no semicolon required for function declarations
-* function literal: - an ambiguous term which can mean named or unnamed function expression
+* can only appear in program code: inside bodies of other functions or global space
+
+## name property
+
+* use named function expression or declaration as it sets name property
+* allows function name to be displayed properly in debugger
+
+## literal and using a different var name
+
+* function literal is an ambiguous term and should be avoided
+* giving a function a name and assigning it to a var with a different name might not work in older browsers
+
+## function hoisting
+
+* for function declarations the function definition also gets hoisted
+* for function expressions it's only the variable that gets hoisted
+* function expressions are not callable before their definitions
