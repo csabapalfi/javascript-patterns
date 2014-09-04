@@ -56,3 +56,20 @@ function (a,b) { ... }
 * for function declarations the function definition also gets hoisted
 * for function expressions it's only the variable that gets hoisted
 * function expressions are not callable before their definitions
+
+## callback pattern
+
+* function reference (callback) can be passed into another function
+* the other function can execute (call back) the passed in function when appropriate
+
+## callback method vs function
+
+* careful with using ```this``` if callback function is a method of an object
+* as callback is not called as method but a function this points at either global or the callers this
+* a workaround is to pass to object in a second parameter, then ```callback_function.call(obj, args)```
+* or pass object and method name as string then ```var callback_function = obj[callback_name]```
+
+## callback examples
+
+* async event handlers in the browser accept callbacks (addEventListener)
+* ```setTimeOut``` and ```setInterval``` also accepts callbacks
