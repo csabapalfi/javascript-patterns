@@ -73,3 +73,62 @@ function (a,b) { ... }
 
 * async event handlers in the browser accept callbacks (addEventListener)
 * ```setTimeOut``` and ```setInterval``` also accepts callbacks
+
+## returning functions
+
+* functions are objects so they can be used as return values
+* a function can return another more specialized function or create one on demand
+
+## self defining function pattern
+
+```js
+var selfDefining = function(){
+    //e.g. do some prep you only got to do once
+    selfDefining = function(){
+        // new function body to overwrite old one
+    }
+}
+```
+
+* another name for this is lazy function definition
+* any properties previously set are cleared when redefining
+* also if function used with a different name (assigned to another var)
+* the var with the different name will use the non-redefined function
+
+## immediate function
+
+* execute function as soon as it's defined
+
+```js
+(function(){
+    //...
+}());
+```
+
+* wrapped in parens so it's clear it's not a function declaration (but expression)
+* scope sandbox for initialization code
+* not leaking any variables
+* global objects can be passed as parameters
+* so don't have to use window inside immediate function
+* but don't pass too many vars to keep it readable
+* scope of the immediate function can be used to store private data
+* and then an object with public methods can be returned
+* can be used to implement self-contained modules
+* other names: self-invoking, self-executing
+
+* immediate Object initialization
+
+```js
+({
+    property: 'value'
+    method: function(){ ... }
+    init: function(){ ... }
+}).init();
+```
+
+* wrapped in parens so that it's clear it's not a code block but object
+* same purpose as immediate function above but more structured
+* private helper methods are clearly distinguishable
+* might not be trivial for minifiers to shorten inner helper method names
+* no reference to the object is available after init
+* unless you do ```return this;``` in init
