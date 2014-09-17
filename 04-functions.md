@@ -147,3 +147,24 @@ var selfDefining = function(){
 * you can add a property named cache - object
 * cache object: keys - argument, values - return value
 * multiple arguments - serialize them (e.g. JSON.stringify) to get a single value
+
+## options/configuration object
+
+* when a function needs to be called with many parameters just use an object
+* parameter or doesn't matter, optional parameters can be skipped
+* easier to read, add remove parameters
+* but you need to remember parameter names, older minifier might not shorten names properly
+
+## function application
+
+```js
+var hello = function(message){ ... };
+hello.apply(null, ['hey!']);
+```
+
+* a function can be applied using ```Function.prototype.apply```
+* first argument is an object to bind ```this``` to
+* second argument is an array of arguments
+* in non-strict mode if first argument is null then it'll point at the global object
+* ```Function.prototype.call``` is just syntactic sugar over apply
+* call expects parameters as normal instead of an array
