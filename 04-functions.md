@@ -116,7 +116,7 @@ var selfDefining = function(){
 * can be used to implement self-contained modules
 * other names: self-invoking, self-executing
 
-* immediate Object initialization
+## immediate Object initialization
 
 ```js
 ({
@@ -132,3 +132,18 @@ var selfDefining = function(){
 * might not be trivial for minifiers to shorten inner helper method names
 * no reference to the object is available after init
 * unless you do ```return this;``` in init
+
+## init-time branching
+
+* also known as load-time branching
+* if a condition is not going to change (e.g. browser feature)
+* only check it once in your program in your init code
+
+## function properties and memoization
+
+* functions are objects and can have properties
+* all functions have a length property (number of arguments it accepts)
+* memoization: caching the return value of a function
+* you can add a property named cache - object
+* cache object: keys - argument, values - return value
+* multiple arguments - serialize them (e.g. JSON.stringify) to get a single value
