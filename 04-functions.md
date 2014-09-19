@@ -167,4 +167,35 @@ hello.apply(null, ['hey!']);
 * second argument is an array of arguments
 * in non-strict mode if first argument is null then it'll point at the global object
 * ```Function.prototype.call``` is just syntactic sugar over apply
-* call expects parameters as normal instead of an array
+* call expects parameters as normal parameter list instead of an array
+
+## partial application
+
+* call a function with less than all of it's arguments
+* and return a function expecting the rest of the arguments
+* this transformation of function is called currying or schonfinkelizing
+* use when find yourself calling a function with same arguments
+
+```js
+function curriedAdd(x,y) {
+    if(y === undefined){
+        return function(y){
+            return x+y;
+        }
+    }
+    return x + y;
+}
+
+//or with more general curry function
+function curry(fn){
+    var slice = Array.prototype.slice; // needed because arguments is not a real Array?
+    var storedArgs = slice.call(arguments, 1);
+    return function(){
+        var newArgs = slice.call(arguments);
+        var args = storedArgs.concat(newArgs);
+        fn.apply(null, args);
+    };
+}
+
+curry(add, 6)(7);
+```
