@@ -169,7 +169,12 @@ hello.apply(null, ['hey!']);
 * ```Function.prototype.call``` is just syntactic sugar over apply
 * call expects parameters as normal parameter list instead of an array
 
-## partial application
+## function binding
+
+* ```Function.prototype.bind``` has the same signature as ```.call```
+* creates a new function bound to the object and optional parameters passed in
+
+## partial application / currying
 
 * call a function with less than all of it's arguments
 * and return a function expecting the rest of the arguments
@@ -177,16 +182,21 @@ hello.apply(null, ['hey!']);
 * use when find yourself calling a function with same arguments
 
 ```js
+// ES5 way with bind
+var curried = add.bind(undefined, 10);
+curried(5);
+
+// old way
 function curriedAdd(x,y) {
-    if(y === undefined){
-        return function(y){
+    if(y === undefined) {
+        return function(y) {
             return x+y;
         }
     }
     return x + y;
 }
 
-//or with more general curry function
+//old way with general curry function
 function curry(fn){
     var slice = Array.prototype.slice; // needed because arguments is not a real Array?
     var storedArgs = slice.call(arguments, 1);
@@ -197,5 +207,5 @@ function curry(fn){
     };
 }
 
-curry(add, 6)(7);
+curry(add, 10)(5);
 ```
