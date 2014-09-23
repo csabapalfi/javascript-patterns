@@ -37,3 +37,16 @@ myApp.namespace = function namespace(ns){
 
 myApp.namespace('myApp.this.is.nested') === myApp.this.is.nested;
 ```
+
+## declare dependencies at the top
+
+```js
+function myFunction(){
+    var dom = myApp.utils.dom;
+    var event = myApp.utils.event;
+}
+```
+
+* shorter to type module names afterwards
+* deps in one place
+* some minifiers won't shorten global var names
