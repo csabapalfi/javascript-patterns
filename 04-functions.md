@@ -182,11 +182,7 @@ hello.apply(null, ['hey!']);
 * use when find yourself calling a function with same arguments
 
 ```js
-// ES5 way with bind
-var curried = add.bind(undefined, 10);
-curried(5);
-
-// old way
+// basic curry example
 function curriedAdd(x,y) {
     if(y === undefined) {
         return function(y) {
@@ -196,16 +192,7 @@ function curriedAdd(x,y) {
     return x + y;
 }
 
-//old way with general curry function
-function curry(fn){
-    var slice = Array.prototype.slice; // needed because arguments is not a real Array?
-    var storedArgs = slice.call(arguments, 1);
-    return function(){
-        var newArgs = slice.call(arguments);
-        var args = storedArgs.concat(newArgs);
-        fn.apply(null, args);
-    };
-}
-
-curry(add, 10)(5);
+// currying with bind
+var curried = add.bind(undefined, 10);
+curried(5);
 ```
