@@ -50,3 +50,31 @@ function myFunction(){
 * shorter to type module names afterwards
 * deps in one place
 * some minifiers won't shorten global var names
+
+## private members with closures
+
+* constructor function create a closure
+* any variables part of constructor closure are not visible outside of it
+
+```js
+function Person(){
+    var secret = 'hey';
+    return {
+        doIt: function (){
+            // can see secret
+        }
+    }
+}
+
+var me = new Person();
+me.secrect === undefined;
+secret === undefined;
+me.doIt(); //does it
+```
+
+* privileged methods are the ones declared within the constructor
+* privileged methods have access to private members
+* old versions of Firefox allowed access to private scope
+* internal arrays/objects are still modifiable via reference
+* make sure you return a new object with only the properties needed by caller
+* or copy your objects/arrays (with utility methods)
