@@ -110,3 +110,15 @@ Person.prototype = (function(){
     }
 }());
 ```
+
+## module pattern
+
+* combination of above:
+    1. define a namespace
+    1. assign an immediate function to it
+    1. which declares dependencies at the top
+    1. has private methods
+    1. and returns an object revealing public API of the module
+    1. globals can be passed in parameters to the immediate function
+* a module can create a constructor as well
+* if you return the constructor function instead of an object
