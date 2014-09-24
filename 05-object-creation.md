@@ -57,7 +57,7 @@ function myFunction(){
 * any variables part of constructor closure are not visible outside of it
 
 ```js
-function Person(){
+function Person() {
     var secret = 'hey';
     return {
         doIt: function (){
@@ -78,3 +78,35 @@ me.doIt(); //does it
 * internal arrays/objects are still modifiable via reference
 * make sure you return a new object with only the properties needed by caller
 * or copy your objects/arrays (with utility methods)
+
+## private properties on prototype
+
+* properties are re-created every time an object is initialized
+* shared properties of prototype can also be made private with the same pattern
+
+```js
+Person.prototype = (function(){
+    //all person sharing the same secret
+    var secret = 'hey';
+    return {
+        doIt: function (){
+            // can see secret
+        }
+    }
+}());
+```
+
+## revealing module pattern
+
+* revealing private methods by assigning them to properties of the returned object
+* can name the property differently to the internal function
+* can expose internal function under more than one names
+
+```js
+Person.prototype = (function(){
+    function sayHello() {}
+    return {
+        greeting: sayHello
+    }
+}());
+```
