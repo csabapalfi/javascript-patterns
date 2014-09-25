@@ -137,6 +137,7 @@ new SandBox('dependencies', 'here', function(box){
 * passed in callback function is you isolated environment
 * you initiate multiple Sandbox object and even nest them
 * you can name the constructor appropriately (instead of Sandbox)
+* YUI (now dead) used this
 
 ## implementing the sandbox pattern
 
@@ -162,3 +163,11 @@ new SandBox('dependencies', 'here', function(box){
 * no real way to do it in ES5
 * just naming convention: all caps, and also worth making sure they're static
 * ```const``` keyword coming in ES6
+
+## chaining
+
+* methods (that may not have a meaningful return value) returning this
+* allows calling methods in a chain in a single expression
+* pros: save some typing, more concise, small and focused methods
+* cons: may get a bit harder to debug - lot happening on a single line
+* JQuery uses it
