@@ -122,3 +122,25 @@ Person.prototype = (function(){
     1. globals can be passed in parameters to the immediate function
 * a module can create a constructor as well
 * if you return the constructor function instead of an object
+
+## sandbox pattern
+
+* addresses some namespace drawbacks: single global var, long dotted names
+
+```js
+new SandBox('dependencies', 'here', function(box){
+  // your code here
+});
+```
+
+* you have a single global constructor
+* passed in callback function is you isolated environment
+* you initiate multiple Sandbox object and even nest them
+* you can name the constructor appropriately (instead of Sandbox)
+
+## implementing the sandbox pattern
+
+* as the Sandbox function is an object we can add a modules (object) property to it
+* add required modules to ```this```
+* then call callback with ```this```
+* the callback is the users sandbox and get populated with the requested functionality
