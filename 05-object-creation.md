@@ -144,3 +144,21 @@ new SandBox('dependencies', 'here', function(box){
 * add required modules to ```this```
 * then call callback with ```this```
 * the callback is the users sandbox and get populated with the requested functionality
+
+## static members
+
+* just add property to constructor function - as that's an object as well
+* (normal methods are added to the prototype or the returned object)
+* you can't call static methods on instance unless you add an alias to prototype
+* when aliasing static method on prototype - careful if you use ```this``` within the method
+
+## private static members
+
+* return constructor function via an immediate (self invoking) function
+* variables within the immediate function are invisible outside (as usual)
+
+## constants
+
+* no real way to do it in ES5
+* just naming convention: all caps, and also worth making sure they're static
+* ```const``` keyword coming in ES6
