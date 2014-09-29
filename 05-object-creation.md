@@ -171,3 +171,12 @@ new SandBox('dependencies', 'here', function(box){
 * pros: save some typing, more concise, small and focused methods
 * cons: may get a bit harder to debug - lot happening on a single line
 * JQuery uses it
+
+## ```method()``` method
+
+* making JavaScript a bit more class-like (which is probably a bad idea)
+* some syntactic sugar to add functions to the prototype property of the constructor
+
+```js
+var Person = fucntion(){...}.method('methodName', function(){ ... });
+```
