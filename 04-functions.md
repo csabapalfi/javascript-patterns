@@ -1,4 +1,4 @@
-# Functions
+# 4. Functions
 
 ## functions are first class objects
 

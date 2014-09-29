@@ -1,4 +1,4 @@
-# Object creation patterns
+# 5. Object creation patterns
 
 ## namespace pattern
 
