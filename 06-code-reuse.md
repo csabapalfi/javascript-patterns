@@ -163,3 +163,21 @@ function extend (parent, child) {
 * shallow copy just copies references of arrays and object
 * children can modify parent properties :(
 * deep copy is when array elements and object properties are copied as well
+
+## mixins
+
+* just deep copy all properties from multiple objects and mix in to a new Object
+* not like mixins in other languages, here: no link to parent
+
+## borrowing methods
+
+* sometimes you want to use one or two methods of an existing Objects
+* you don't want a parent-child relationship with that Object
+* can be done with ```call``` and ```apply```
+* pass in your object to bind ```this``` to within the function
+
+```js
+notMyObject.doStuff.call(myObject, param1, param2);
+//or
+notMyObject.doStuff.apply(myObject, [param1, param2]);
+```
