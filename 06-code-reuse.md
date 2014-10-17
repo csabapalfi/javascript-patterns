@@ -113,3 +113,53 @@ var inherit = (function(){
     }
 })();
 ```
+
+## klass
+
+* some legacy JS libraries/frameworks emulate classes
+* usually there's a convention on how to name constructor functions (e.g. init)
+* they tend to support classical inheritance
+
+## prototypal inheritance
+
+* modern classless pattern
+* no classes, objects inherit from objects
+
+```js
+function object (parent) {
+    function F() {}
+    F.prototype = parent;
+    return new F();
+}
+
+var parent = { ... }
+var child = object(parent);
+```
+
+* children get parent methods and properties via ```__proto__``` link
+* parent can be created via constructor as well (not just literal)
+
+## Object.create
+
+* prototypal inheritance is built-in since ES5
+* ```Object.create(parentObject, ownPropertiesObject)```
+
+## inheritance by copying properties
+
+```js
+//shallow copy
+function extend (parent, child) {
+    var key;
+    child = child || {};
+    for(key in parent){
+        if(parent.hasOwnProperty(key)){
+            child[key] = parent[key];
+        }
+    }
+    return child;
+}
+```
+
+* shallow copy just copies references of arrays and object
+* children can modify parent properties :(
+* deep copy is when array elements and object properties are copied as well
