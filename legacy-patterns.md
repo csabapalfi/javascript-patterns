@@ -1,6 +1,10 @@
-# 6. Code re-use patterns
+# Legacy patterns
 
-## classical inheritance
+Event though the book is amazing some patterns so the signs of aging (e.g. replaced by ES5 feautures or turned out to be bad ideas) Moved some of the older patterns here.
+
+## 6. Code re-use patterns
+
+### classical inheritance
 
 * play on the word 'class', nothing to do with the word classical
 * JavaScript has no classes but constructor functions make same people think that
@@ -16,7 +20,7 @@ inherit(Child, Parent);
 
 * inherit is not part of the language have to implement it yourself
 
-## classical default pattern
+### classical default pattern
 
 ```js
 function inherit(Child, Parent){
@@ -28,7 +32,7 @@ function inherit(Child, Parent){
 * drawback: children gets both own and prototype properties from parent
 * drawback: can't really pass parameters, or end up with a lot of objects
 
-## classical rent-a-constructor pattern
+### classical rent-a-constructor pattern
 
 ```js
 function Child(a, b, c, d){
@@ -47,7 +51,7 @@ function Child(a, b, c, d){
 * multiple inheritance can be achieved by applying more than one constructors
 * in case of multiple inheritance and duplicate properties - last one wins
 
-## classical rent-and-set prototype
+### classical rent-and-set prototype
 
 ```js
 function Child(a, b, c, d){
@@ -60,7 +64,7 @@ Child.prototype = new Parent();
 * and references re-usable functionality (from parents prototype)
 * drawback: parent constructor is called twice
 
-## classical share the prototype pattern
+### classical share the prototype pattern
 
 ```js
 function inherit(Child, Parent){
@@ -72,7 +76,7 @@ function inherit(Child, Parent){
 * fast lookups as all object references one prototype
 * BUT children can modify parent behaviour
 
-## classical temporary constructor pattern
+### classical temporary constructor pattern
 
 ```js
 function inherit(Child,Parent){
@@ -102,7 +106,7 @@ var inherit = (function(){
 })();
 ```
 
-## klass
+### klass
 
 * some legacy JS libraries/frameworks emulate classes
 * usually there's a convention on how to name constructor functions (e.g. init)
