@@ -831,8 +831,36 @@ function example(){
 }
 ```
 
-* one typical example is borrowing ```Array`` methods for the ```arguments``` object
+* one typical example is borrowing ```Array``` methods for the ```arguments``` object
 
 ### borrow and bind
 
-...
+* with call/apply ```this``` reference has to be passed in when called
+* sometimes it's better to locked/bound to specific object in advance
+* ```bind``` function binds a method to an object
+
+```js
+//simple bind function
+function bind (object, method) {
+    return function() {
+        return method.apply(object, [].slice.call(arguments));
+    }
+}
+```
+
+### ```Function.prototype.bind```
+
+* ES5 has bind builtin, it also accepts partial argument list
+
+```js
+//basic implementation handling partial application
+Function.prototype.bind = Function.prototype.bind || function(thisArg) {
+    var fn = this;
+    var slice = Array.prototype.slice;
+    var args = slice.call(arguments, 1);
+
+    return function () {
+        return fn.call(thisArg, args.concat(slice.call(arguments)))
+    }
+}
+````
