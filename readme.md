@@ -314,7 +314,7 @@ if(!(this instanceof arguments.callee)){
 
 ### checking Array-iness
 
-* ```typeof``` with array operands returns ```Object```
+* ```typeof``` with array operands returns ```object```
 * before ES5 - checking for length or slice property
 * ES5 introduced .isArray method
 * also ```Object.prototype.toString()``` returns ```"[object Array]"``` (instead of ```"[object Object]"```)
