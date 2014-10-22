@@ -853,7 +853,7 @@ function bind (object, method) {
 * ES5 has bind builtin, it also accepts partial argument list
 
 ```js
-//basic implementation handling partial application
+//basic example implementation handling partial application
 Function.prototype.bind = Function.prototype.bind || function(thisArg) {
     var fn = this;
     var slice = Array.prototype.slice;
@@ -863,4 +863,37 @@ Function.prototype.bind = Function.prototype.bind || function(thisArg) {
         return fn.call(thisArg, args.concat(slice.call(arguments)))
     }
 }
-````
+```
+## 7. Design patterns
+
+* as made famous by the GoF book
+* language independent but mainly for Java/C++ like strongly typed languages
+* most of them are really easy to implement in JavaScript
+
+### singleton
+
+* only one instance of specific class
+* JS: no classes, when you create a new object there's no other like it
+* (in JS some people mean Chapter 5. module pattern by singletons)
+* you might want singletons when using ```new```:
+    * store instance as a (static) property on constructor function
+    * but static property is public
+    * can also protect instance as a private static member (via closure)
+    * (be careful not to wipe out prototype properties)
+
+```js
+var IAmSingleton;
+
+(function(){
+    var instance;
+    IAmSingleton = function() {
+        if (instance) {
+            return instance;
+        }
+        instance = this;
+
+        //... all the functionality
+        this.whatever = true;
+    }
+})();
+```
