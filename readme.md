@@ -897,3 +897,20 @@ var IAmSingleton;
     }
 })();
 ```
+
+
+### factory
+
+* performs repeating operations when setting up similar objects
+* built-in Object() constructor is an example, returns Number, String, etc based in argument
+
+### other patterns
+
+* all easily implemented in Javascript
+* iterator - processing aggregate data
+* decorator - dinamically add functionallity to an object at runtime
+* strategy - select algorithm at runtime
+* facade - alternative interface to an object - combining method
+* proxy - alternative interface, sitting in front of object
+* mediator - separate object providing communication instead of loose coupling
+* observer - publish/subscribe to aid loose coupling, widely used in JavaScript
