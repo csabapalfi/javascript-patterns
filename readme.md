@@ -931,7 +931,7 @@ var IAmSingleton;
 * assign DOM references to local variables and work with those
 * use selectors API (since IE8)
 * cache length when iterating over HTML collections (old IE versions)
-* using ids was the fastest way to access DOM elements
+* using ids is the fastest way to access DOM elements
 
 ```js
 //var it up
@@ -939,4 +939,47 @@ var hey = document.getElementById('hey');
 //use selectors API
 document.querySelector('.hello');
 document.querySelectorAll('.hello');
+```
+
+### DOM manipulation
+
+* in addition to accessing you often want to add/remove/modify DOM elements
+* updates to DOM can be really expensive, fewer the better
+* can cause a browser to repaint the screen
+* can also cause a reflow - recalculating the elements geometry
+
+### batch DOM additions
+
+* do batch additon to DOM, and try doing them outside of the live tree
+
+```js
+//create elements outside of live tree
+var paragraph = document.createElement('p');
+var text = document.createTextNode('some text');
+paragraph.appendChild(text);
+//add it at the end
+document.body.appendChild(paragraph);
+```
+
+* use a document fragment if no parent element otherwise
+```js
+//create a fragment if the elements you're adding don't have a parent
+var fragment = document.createDocumentFragment();
+fragment.appendChild(document.createElement('p'));
+fragment.appendChild(document.createElement('p'));
+//add fragment at the end
+document.body.appendChild(fragment);
+```
+
+### batch DOM updates
+
+* you can make a clone of the root of the subtree you're changing
+* then swap your clone with the original
+
+```js
+var oldNode = document.getElementById('result');
+var clone = oldNode.cloneNode(true);
+//... make your changes
+//then replace
+oldnode.parentNode.replaceChild(clone, oldNode);
 ```
