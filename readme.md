@@ -914,3 +914,29 @@ var IAmSingleton;
 * proxy - alternative interface, sitting in front of object
 * mediator - separate object providing communication instead of loose coupling
 * observer - publish/subscribe to aid loose coupling, widely used in JavaScript
+
+## 8. DOM and browser patterns
+
+### separation of concerns
+
+* content - HTML, presentation - CSS, behaviour - JS
+* progressive enhancement - basic HTML should work, too
+* no inline JS (```onclick```) or CSS (```style``` attribute)
+* JS - capability detection instead of browser sniffing
+
+### DOM access
+
+* DOM access is expensive and should be kept to minimum
+* avoid DOM access in loops
+* assign DOM references to local variables and work with those
+* use selectors API (since IE8)
+* cache length when iterating over HTML collections (old IE versions)
+* using ids was the fastest way to access DOM elements
+
+```js
+//var it up
+var hey = document.getElementById('hey');
+//use selectors API
+document.querySelector('.hello');
+document.querySelectorAll('.hello');
+```
