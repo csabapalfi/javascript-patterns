@@ -984,7 +984,7 @@ var clone = oldNode.cloneNode(true);
 oldnode.parentNode.replaceChild(clone, oldNode);
 ```
 
-## event handling
+### event handling
 
 * no ```onclick``` in HTML (seriously :)
 * usually via framework but worth knowing the basics
@@ -994,4 +994,7 @@ oldnode.parentNode.replaceChild(clone, oldNode);
 * useCapture - all events will events dispathed to this listener first before other listeners beneath this in the DOM tree
 * ```addEventListener``` is not available in IE8 and before
 * useCapture - optional (with default=false) in recent browser
-* just always pass useCapture in for brodest compatibility
+* just always pass useCapture in for broadest compatibility
+* handler is called with event object
+* ```e.stopPropagation()``` - prevents event from bubbling up to document root
+* ```e.preventDefault()``` - prevents default action (if required)
