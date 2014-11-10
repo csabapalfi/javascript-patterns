@@ -1005,3 +1005,20 @@ oldnode.parentNode.replaceChild(clone, oldNode);
 * can reduce the number of event listeners by attaching one only to the parent
 * event properties can be used to filter out the events we care about
 * drawback: slightly more complex code but there are JS libraries to make this easy
+
+### web workers
+
+* javascript runs on a single thread in the browser
+* web workers: background thread support by the browser
+* only in modern browsers
+* you put worker code in a separate file
+* worker can use ```postMessage``` to send messages to the caller
+* caller can subscribe to messages using ```Worker.onMessage```
+
+```js
+var worker = new Worker('my_worker.js');
+worker.onMessage(function(event) {
+    console.log(event.data);
+});
+//my_worker.js: postMessage('hello there');
+```
