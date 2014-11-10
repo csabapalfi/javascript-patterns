@@ -998,3 +998,10 @@ oldnode.parentNode.replaceChild(clone, oldNode);
 * handler is called with event object
 * ```e.stopPropagation()``` - prevents event from bubbling up to document root
 * ```e.preventDefault()``` - prevents default action (if required)
+
+### event delegation
+
+* events are bubbling up to parent elements
+* can reduce the number of event listeners by attaching one only to the parent
+* event properties can be used to filter out the events we care about
+* drawback: slightly more complex code but there are JS libraries to make this easy
