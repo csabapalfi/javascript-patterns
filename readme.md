@@ -1022,3 +1022,19 @@ worker.onMessage(function(event) {
 });
 //my_worker.js: postMessage('hello there');
 ```
+
+### XMLHttpRequest
+
+* special constructor function available in most browsers
+* allows sending HTTP requests
+
+```js
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function handleResponse() {
+    if(xhr.readyState === 4 && xhr.status === 200) {
+        console.log(xhr.responseText);
+    }
+};
+xhr.open('GET', 'page.html', true);
+xhr.send();
+```
