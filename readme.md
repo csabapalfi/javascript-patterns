@@ -1059,7 +1059,7 @@ xhr.send();
 * concatenate scripts to reduce number of HTTP requests
 * loosing some of the granular caching benefits
 * have to come up with versioning scheme
-* minify to reduce script size
+* minify and gzip to reduce script size
 * use source maps to still allow easy debugging
 * use cache headers properly (browsers don't cache for too long by default)
 
