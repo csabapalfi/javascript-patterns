@@ -1074,3 +1074,26 @@ xhr.send();
 * sending HTTP response in chunks, browser can deal with this
 * possible to send page header first, then page content, the script tags at the bottom
 * these can be sent in different chunks, browser will progressively render
+
+### dynamic script tag example
+
+```js
+//create script tag
+var script = document.createElement('script');
+script.src = 'my_script.js';
+//append to head
+document.documentElement.firstChild.appendChild(script);
+```
+
+* careful with multiple files (if they depend on each other)
+* careful with what you append to (make sure it exists or use the script tag running the append)
+
+### lazy loading
+
+* dynamically loading (page-enhancing) JS on page onload
+
+### preloading
+
+* dinamically create object tag (to prevent execution)
+* set src to js file, and width, height to 0
+* next page will get that JS file from cache
