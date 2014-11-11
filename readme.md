@@ -1010,7 +1010,7 @@ oldnode.parentNode.replaceChild(clone, oldNode);
 
 * javascript runs on a single thread in the browser
 * web workers: background thread support by the browser
-* only in modern browsers
+* only in modern browsers (from IE 10)
 * you put worker code in a separate file
 * worker can use ```postMessage``` to send messages to the caller
 * caller can subscribe to messages using ```Worker.onMessage```
@@ -1038,3 +1038,32 @@ xhr.onreadystatechange = function handleResponse() {
 xhr.open('GET', 'page.html', true);
 xhr.send();
 ```
+
+### JSONP
+
+* JSON with padding
+* not restricted by same origin policy (but really you should just setup CORS properly)
+* callback parameter in URL specifies the JS function handling the response
+* server should return data passed into the callback function as parameter
+
+### Image beacons
+
+* even without javascript, data can be sent to the server
+* include an img tag (typically 1x1 transpatrent PNG)
+* actually better to respond with 204 No Content (old IE version might not like this)
+* browser makes a request when the page is being loaded
+
+### combining scripts, minification, caching
+
+* concatenate scripts to reduce number of HTTP requests
+* loosing some of the granular caching benefits
+* have to come up with versioning scheme
+* minify to reduce script size
+* use source maps to still allow easy debugging
+* use cache headers properly (browsers don't cache for too long by default)
+
+### script tag location and attributes
+
+* don't use language or type attribute as browsers assume JS anyways
+* script tags (by default) block page loading until they're downloaded, parsed and run
+* put your script tags at the bottom of the page or use HTML5 async script (since IE10)
