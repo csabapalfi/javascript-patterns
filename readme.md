@@ -1027,6 +1027,7 @@ worker.onMessage(function(event) {
 
 * special constructor function available in most browsers
 * allows sending HTTP requests
+* libraries wrap this - e.g. Jquery.ajax
 
 ```js
 var xhr = new XMLHttpRequest();
@@ -1067,3 +1068,9 @@ xhr.send();
 * don't use language or type attribute as browsers assume JS anyways
 * script tags (by default) block page loading until they're downloaded, parsed and run
 * put your script tags at the bottom of the page or use HTML5 async script (since IE10)
+
+### HTTP chunking
+
+* sending HTTP response in chunks, browser can deal with this
+* possible to send page header first, then page content, the script tags at the bottom
+* these can be sent in different chunks, browser will progressively render
